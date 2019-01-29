@@ -142,6 +142,107 @@ public class DBOperation {
 	}
 	
 	
+	public boolean InnerJoin() throws SQLException {
+	      DBConnection conn =  DBConnection.getInstance();
+			
+			Connection dbConnection = conn.getConnection();
+			
+	
+			
+			
+			
+			String query = "SELECT order_table_tasniah.e_id, Employee_Tasniah.e_name FROM order_table_tasniah INNER JOIN Employee_Tasniah ON order_table_tasniah.e_id = Employee_Tasniah.e_id; ";
+		      PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+//		      return preparedStatement.execute(); 
+		      
+		   
+		      ResultSet rs = preparedStatement.executeQuery();
+				while (rs.next()) {
+					String nString = rs.getString("e_name");
+					String e_id = rs.getString("e_id");
+					
+					if (nString != null && e_id != null)
+						return true;
+				}
+
+				return false;
+		     
+		  
+		      
+		      
+			
+	}
+	
+	
+	
+	public boolean OuterJoin() throws SQLException {
+	      DBConnection conn =  DBConnection.getInstance();
+			
+			Connection dbConnection = conn.getConnection();
+			
+	
+			
+			
+			
+			String query = "SELECT order_table_tasniah.e_id, Employee_Tasniah.e_name,Employee_Tasniah.e_city FROM order_table_tasniah FULL OUTER JOIN Employee_Tasniah ON order_table_tasniah.e_id = Employee_Tasniah.e_id ORDER BY Employee_Tasniah.e_name; ";
+		      PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+//		      return preparedStatement.execute(); 
+		      
+		   
+		      ResultSet rs = preparedStatement.executeQuery();
+				while (rs.next()) {
+					String nString = rs.getString("e_name");
+					String e_id = rs.getString("e_id");
+					String e_city = rs.getString("e_city");
+					
+					
+					if (nString != null && e_id != null && e_city != null)
+						return true;
+				}
+
+				return false;
+		     
+		  
+		      
+		      
+			
+	}
+	
+	
+	public boolean HavingGroupbyCount() throws SQLException {
+	      DBConnection conn =  DBConnection.getInstance();
+			
+			Connection dbConnection = conn.getConnection();
+			
+	
+			
+			
+			
+			String query = "SELECT COUNT(order_id) AS count_no,order_name FROM order_table_tasniah GROUP BY order_name HAVING COUNT(order_id)=2;";
+		      PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+//		      return preparedStatement.execute(); 
+		      
+		   
+		      ResultSet rs = preparedStatement.executeQuery();
+				while (rs.next()) {
+					int count_no = rs.getInt("count_no");
+					String order_name = rs.getString("order_name");
+				
+					
+					
+					if (order_name != null && count_no != 0 )
+						return true;
+				}
+
+				return false;
+		     
+		  
+		      
+		      
+			
+	}
+	
+	
 	
 	
 	

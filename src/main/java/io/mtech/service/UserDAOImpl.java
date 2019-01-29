@@ -80,10 +80,18 @@ public class UserDAOImpl implements UserDAO{
 			}
 			return true;
 		
-		
-		
-		
 	}
+
+
+		@Override
+		public boolean InnerJoin() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+		
+		
+		
+		
 
 
 

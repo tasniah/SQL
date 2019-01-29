@@ -72,7 +72,7 @@ public void insertTest() throws SQLException {
 //}
 	
 	
-	@Test	
+	//@Test	
 public void updateTest() throws SQLException {
 	
 		User user =  new User();
@@ -89,7 +89,7 @@ public void updateTest() throws SQLException {
 }
    
 	
-	@Test	
+	//@Test	
 	public void testfindData() throws SQLException {
 		
 		User user1 =  new User();
@@ -103,22 +103,58 @@ public void updateTest() throws SQLException {
 	}
 	
 	
-	@Test	
+	//@Test	
 	public void testWildcard() throws SQLException {
 		
      	User user1 =  new User();
-//		user1.setE_city("Patuakhali");
+
 		user1.setE_country("Bangladesh");
-//		user1.setE_name("Keya");
-//		user1.setE_salary(40000);
-//		user1.setE_id("20161055");
-//		user1.setE_zipCode(1203);
+
 		
 		DBOperation dbOperation=  new DBOperation();
 		
 	    assertTrue(dbOperation.WildcardData(user1));
 		
 	}
+	
+	
+	//@Test	
+	public void testInnerJoin() throws SQLException {
+		
+
+		
+		DBOperation dbOperation=  new DBOperation();
+		
+		
+		 assertEquals(true, dbOperation.InnerJoin());
+		
+	}
+	
+	
+	//@Test	
+	public void testOuterJoin() throws SQLException {
+		
+
+		
+		DBOperation dbOperation=  new DBOperation();
+		
+		
+		 assertEquals(true, dbOperation.OuterJoin());
+		
+	}
+	
+	@Test	
+	public void testHavingGroupbyCount() throws SQLException {
+		
+
+		
+		DBOperation dbOperation=  new DBOperation();
+		
+		
+		 assertEquals(true, dbOperation.HavingGroupbyCount());
+		
+	}
+	
 	
 	
 	

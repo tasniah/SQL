@@ -8,6 +8,7 @@ public interface UserDAO {
 	boolean updateUser(User User);
 	boolean userFindById(User User);
 	boolean wildcard(User User) ;
+	boolean InnerJoin();
 
 }
 

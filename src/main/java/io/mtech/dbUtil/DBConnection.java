@@ -5,7 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import lombok.extern.slf4j.*;
+
+import lombok.extern.slf4j.Slf4j;
+
+
 
 
 @Slf4j
